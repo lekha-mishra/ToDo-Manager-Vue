@@ -12,7 +12,7 @@
         </b-form-group>
       </b-col>
       <b-col cols="auto">
-        <b-button variant="primary" class="px-2 px-md-4" v-on:click="addTask">
+        <b-button variant="primary" class="px-2 px-md-4" @click="addTask">
           Add Task
         </b-button>
       </b-col>
@@ -22,28 +22,29 @@
       v-for="(task, index) in newTasks"
       :key="index"
     >
-      <b-col>
-        <b-form-checkbox
+      <b-col class="d-flex align-items-center">
+        <input
+          type="checkbox"
           :id="`${task.title}_${index}`"
-          v-model="task.completed"
           :class="{ completed: task.completed }"
-          class="text-start d-flex align-items-center h-100"
-        >
-          <span class="ps-2">{{ task.title }}</span>
-        </b-form-checkbox>
+          class="text-start h-100"
+          v-model="task.completed"
+        />
+        <label :for="`${task.title}_${index}`" class="ps-2">{{
+          task.title
+        }}</label>
       </b-col>
       <b-col sm="auto">
         <b-button
           variant="danger"
           size="sm"
           class="d-flex"
-          v-on:click="setTaskIdForDeletion(index)"
+          @click="setTaskIdForDeletion(index)"
           v-b-modal.delete-task-confirmation-modal
+          v-b-tooltip.hover
+          title="Tooltip content"
         >
-          <b-icon-trash
-            v-b-tooltip.hover
-            title="Tooltip content"
-          ></b-icon-trash>
+          <b-icon-trash></b-icon-trash>
         </b-button>
       </b-col>
     </b-row>
@@ -61,14 +62,16 @@
         v-for="(task, index) in completedTasks"
         :key="index"
       >
-        <b-col>
-          <b-form-checkbox
+        <b-col class="d-flex align-items-center">
+          <input
+            type="checkbox"
             :id="`${task.title}_${index}`"
             v-model="task.completed"
-            class="text-start d-flex align-items-center h-100"
-          >
-            <span class="ps-2">{{ task.title }}</span>
-          </b-form-checkbox>
+            class="text-start h-100"
+          />
+          <label :for="`${task.title}_${index}`" class="ps-2">{{
+            task.title
+          }}</label>
         </b-col>
       </b-row>
     </b-card>
@@ -85,10 +88,10 @@
         Are you sure you want to delete the task?
       </div>
       <template #modal-footer="{ close, cancel }">
-        <b-button variant="light" v-on:click="cancel()"> Cancel </b-button>
+        <b-button variant="light" @click="cancel"> Cancel </b-button>
         <b-button
           variant="danger"
-          v-on:click="
+          @click="
             removeTask(taskIdForDeletion, 'new');
             close();
           "
@@ -100,49 +103,55 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+
 export default {
-  data() {
-    return {
-      newTask: "",
-      tasks: [],
-    };
-  },
   setup() {
+    const newTask = ref("");
+    const tasks = ref([]);
+
     const taskIdForDeletion = ref(0);
+
     const setTaskIdForDeletion = (newValue) => {
       taskIdForDeletion.value = newValue;
     };
-    return {
-      taskIdForDeletion,
-      setTaskIdForDeletion,
-    };
-  },
-  computed: {
-    newTasks() {
-      return this.tasks.filter((task) => !task.completed);
-    },
-    completedTasks() {
-      return this.tasks.filter((task) => task.completed);
-    },
-  },
-  methods: {
-    addTask() {
-      if (this.newTask.trim() !== "") {
-        this.tasks.push({
-          title: this.newTask,
+
+    const newTasks = computed(() => {
+      return tasks.value.filter((task) => !task.completed);
+    });
+
+    const completedTasks = computed(() => {
+      return tasks.value.filter((task) => task.completed);
+    });
+
+    const addTask = () => {
+      if (newTask.value.trim() !== "") {
+        tasks.value.push({
+          title: newTask.value,
           completed: false,
         });
-        this.newTask = "";
+        newTask.value = "";
       }
-    },
-    removeTask(index, taskType) {
+    };
+
+    const removeTask = (index, taskType) => {
       if (taskType === "new") {
-        this.tasks.splice(index, 1);
+        tasks.value.splice(index, 1);
       } else if (taskType === "completed") {
-        this.tasks.splice(this.tasks.indexOf(this.completedTasks[index]), 1);
+        tasks.value.splice(tasks.value.indexOf(completedTasks.value[index]), 1);
       }
-    },
+    };
+
+    return {
+      newTask,
+      tasks,
+      taskIdForDeletion,
+      setTaskIdForDeletion,
+      newTasks,
+      completedTasks,
+      addTask,
+      removeTask,
+    };
   },
 };
 </script>

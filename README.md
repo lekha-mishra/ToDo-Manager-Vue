@@ -31,3 +31,10 @@ npm run lint
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Migration from Vue2 to Vue3:
+
+First, we make sure that our @vue/cli-service is in the newest version.
+To update our vue-cli command is – vue upgrade
+Now modify our ‘package.json’ file. Here we have to uninstall vue2 and vue-template-compiler. They are not needed for VueJS.
+Run the npm install command to install vue3, @vue/compat, and compiler @vue/compiler-sfc.
