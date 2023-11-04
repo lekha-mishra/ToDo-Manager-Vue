@@ -23,24 +23,24 @@ coverage
 # Getting Started
 To run the project locally, follow these steps:
 
-# Step 1: Install Vue CLI
+## Step 1: Install Vue CLI
 
 If you haven't already installed Vue CLI globally, you can do so by running the following command in your terminal:
 ```bash
 npm install -g @vue/cli
 ```
-# Step 2: Clone Vue 2 code from master branch and locate the project folder
+## Step 2: Clone Vue 2 code from master branch and locate the project folder
  ```bash
    git clone https://github.com/lekha-mishra/ToDo-Manager-Vue.git
    cd ToDo-Manager-Vue
 ```
 
-# Step 3: Install node packages
+## Step 3: Install node packages
  ```bash
    npm i
 ```
 
-# Step 4: Compiles and hot-reloads for development
+## Step 4: Compiles and hot-reloads for development
 ```
 npm run serve
 ```
@@ -50,26 +50,26 @@ npm run serve
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Migration from Vue2 to Vue3:
-The Vue 3 project is on the branch "upgraded-code-to-vue-3-", to switch to the project upgraded Vue 3 Project follow these steps:
+The Vue 3 project is on the branch "upgraded-code-to-vue-3-", to switch to the Vue 3 Project, follow these steps:
 
-# Step 5: Switch to Vue 3 code barnch
+## Step 5: Switch to Vue 3 code barnch
  ```bash
    cd ToDo-Manager-Vue
    git checkout ToDo-Manager-Vue
 ```
 
-# Step 6: Delete node_module folder
+## Step 6: Delete node_module folder
 
-#Step 7: Re-Install node packages
+## Step 7: Re-Install node packages
  ```bash
    npm i
 ```
-# Step 4: Compiles and hot-reloads for development
+## Step 8: Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-## Steps to upgrade command from Vue 2 to Vue 3
+# Steps to upgrade command from Vue 2 to Vue 3
 First, we make sure that our @vue/cli-service is in the newest version.
 To update our vue-cli command is – vue upgrade
 Now modify our ‘package.json’ file. Here we have to uninstall vue2 and vue-template-compiler. They are not needed for VueJS.
