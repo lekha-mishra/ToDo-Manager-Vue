@@ -49,13 +49,13 @@ npm run serve
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## Migration from Vue2 to Vue3:
+## Run Vue 3 Project:
 The Vue 3 project is on the branch "upgraded-code-to-vue-3-", to switch to the Vue 3 Project, follow these steps:
 
 ## Step 5: Switch to Vue 3 code barnch
  ```bash
    cd ToDo-Manager-Vue
-   git checkout ToDo-Manager-Vue
+   git checkout upgraded-code-to-vue-3-
 ```
 
 ## Step 6: Delete node_module folder
@@ -69,8 +69,8 @@ The Vue 3 project is on the branch "upgraded-code-to-vue-3-", to switch to the V
 npm run serve
 ```
 
-# Steps to upgrade command from Vue 2 to Vue 3
-First, we make sure that our @vue/cli-service is in the newest version.
-To update our vue-cli command is – vue upgrade
-Now modify our ‘package.json’ file. Here we have to uninstall vue2 and vue-template-compiler. They are not needed for VueJS.
-Run the npm install command to install vue3, @vue/compat, and compiler @vue/compiler-sfc.
+# Steps to upgrade from Vue 2 to Vue 3 environment for existing project
+- First, we make sure that our @vue/cli-service is in the newest version.
+- To update our vue-cli command is – vue upgrade
+- Now modify our ‘package.json’ file. Here we have to uninstall vue2 and vue-template-compiler. They are not needed for VueJS.
+- Run the npm install command to install vue3, @vue/compat, and compiler @vue/compiler-sfc.
