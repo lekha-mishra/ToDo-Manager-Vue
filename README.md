@@ -64,9 +64,14 @@ The Vue 3 project is on the branch "upgraded-code-to-vue-3-", to switch to the p
  ```bash
    npm i
 ```
-# Step 4: Compiles and hot-reloads for development
+# Step 7: Compiles and hot-reloads for development
 ```
 npm run serve
+```
+
+# Step 8: Run unit test
+```
+npm run test:unit
 ```
 
 ## Steps to upgrade command from Vue 2 to Vue 3
