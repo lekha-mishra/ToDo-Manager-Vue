@@ -86,3 +86,7 @@ npm install vue@3
 npm install @vue/compat
 npm install @vue/compiler-sfc
 ```
+- Check compatibility of upgraded vue with its dependancies/packages, if any found any error
+ ```bash
+npm list vue
+```
