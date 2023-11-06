@@ -11,7 +11,7 @@
       id="sidebarToggle"
       v-on:click="toggleSidebar"
     >
-      <b-icon-filter-left scale="1.2"></b-icon-filter-left>
+      <PhListFill />
     </button>
     <div class="navbar-nav align-items-center ms-auto d-none d-sm-block">
       <b-dropdown text="Lekha Mishra" variant="text">
@@ -22,7 +22,12 @@
 </template>
 
 <script>
+import PhListFill from "~icons/ph/list-fill";
+
 export default {
+  components: {
+    PhListFill,
+  },
   methods: {
     logOut() {
       console.log("logout clicked");
