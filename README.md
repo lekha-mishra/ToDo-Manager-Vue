@@ -7,6 +7,8 @@
 The objective of this project is to create a Vue 2 To-Do list application and then
 upgrade it to Vue 3 with Nuxt.js while adhering to best coding practices.
 
+https://github.com/lekha-mishra/ToDo-Manager-Vue/assets/138582219/db890fef-ac90-4376-953e-d91bb62fece2
+
 # Features
 - Create a simple Vue 2 To-Do list application.
 - Add tasks with a title.
